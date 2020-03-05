@@ -20,7 +20,7 @@ namespace BloodBankSystem.DAL
         public DataTable Select()
         {
             //create an object to connect db
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
             //create a datatable to hold the data from db
             DataTable dt = new DataTable();
@@ -64,7 +64,7 @@ namespace BloodBankSystem.DAL
             bool isSuccess = false;
 
             //create an object of sqlconnection to connect db
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
             try
             {
@@ -126,7 +126,7 @@ namespace BloodBankSystem.DAL
             bool isSuccess = false;
 
             //create an object for database connection
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(myconnstrng);
 
             try
             {
@@ -176,6 +176,58 @@ namespace BloodBankSystem.DAL
             return isSuccess;
 
 
+        }
+
+        #endregion
+
+
+        #region DELETE data from database (User module)
+
+        public bool Delete(userBLL u)
+        {
+            //create a boolean value and set its default value to false
+            bool isSuccess = false;
+
+            //create an object for sql connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            try
+            {
+                //create a string variable to hold the sql query to delete data 
+                string sql = "DELETE FROM table_users WHERE user_id = @user_id";
+
+                //create a sql command to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //pass the value through parameters
+                cmd.Parameters.AddWithValue("@user_id", u.user_id);
+
+                //create an integer variable to hold the value after query is executed
+                int rows = cmd.ExecuteNonQuery();
+
+                //if the query is executed successfully then the value of rows is greater than 0 else its 0
+                if (rows > 0)
+                {
+                    //query executed successfully
+                    isSuccess = true;
+                }
+                else
+                {
+                    //failed to execute the query
+                    isSuccess = false;
+                }
+            }
+            catch (Exception e)
+            {
+                //display a message if there are any exceptional errors
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                //close the connection
+                conn.Close();
+            }
+
+            return isSuccess;
         }
 
         #endregion

@@ -136,6 +136,7 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(230, 375);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = 'x';
             this.textBoxPassword.Size = new System.Drawing.Size(362, 26);
             this.textBoxPassword.TabIndex = 12;
             // 
@@ -205,6 +206,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -214,6 +216,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
@@ -243,6 +246,7 @@
             this.dgvUsers.RowTemplate.Height = 28;
             this.dgvUsers.Size = new System.Drawing.Size(439, 347);
             this.dgvUsers.TabIndex = 21;
+            this.dgvUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_RowHeaderMouseClick);
             // 
             // textBoxSearch
             // 
@@ -292,6 +296,7 @@
             this.Controls.Add(this.lblProfilePicture);
             this.Name = "frmUsers";
             this.Text = "Users";
+            this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
