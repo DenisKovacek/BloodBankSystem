@@ -96,7 +96,33 @@ namespace BloodBankSystem.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //get the values from the UI
+            u.user_id = int.Parse(textBoxUserId.Text);
+            u.full_name = textBoxFullName.Text;
+            u.email = textBoxEmail.Text;
+            u.username = textBoxUsername.Text;
+            u.password = textBoxPassword.Text;
+            u.contact = textBoxContact.Text;
+            u.address = textBoxAddress.Text;
+            u.added_date = DateTime.Now;
+            u.image_name = imageName;
 
+            //create a boolean variable to check if the data is updated successfully
+            bool success = dal.Update(u);
+
+            //check if the data is updated or not
+            if(success == true)
+            {
+                //data updated successfully
+                MessageBox.Show("User updated successfully.");
+
+                //refresh data grid view
+                DataTable dt = dal.Select();
+                dgvUsers.DataSource = dt;
+
+                //clear the textboxes
+                Clear();
+            }
         }
     }
 }
