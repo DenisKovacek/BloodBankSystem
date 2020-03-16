@@ -71,6 +71,7 @@ namespace BloodBankSystem.UI
             textBoxContact.Text = "";
             textBoxAddress.Text = "";
             textBoxPassword.Text = "";
+            textBoxUserId.Text = "";
         }
 
         private void dgvUsers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -146,6 +147,12 @@ namespace BloodBankSystem.UI
                 //clear the textboxes
                 Clear();
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //call the user function
+            Clear();
         }
     }
 }

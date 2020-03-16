@@ -204,6 +204,9 @@ namespace BloodBankSystem.DAL
                 //pass the value through parameters
                 cmd.Parameters.AddWithValue("@user_id", u.user_id);
 
+                //open the db connection
+                conn.Open();
+
                 //create an integer variable to hold the value after query is executed
                 int rows = cmd.ExecuteNonQuery();
 
