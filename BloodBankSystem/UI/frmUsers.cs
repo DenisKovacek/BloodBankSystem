@@ -124,5 +124,28 @@ namespace BloodBankSystem.UI
                 Clear();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //get the user id from text box to delete the user
+            u.user_id = int.Parse(textBoxUserId.Text);
+
+            //create the boolean value to check if the user has been deleted or not
+            bool success = dal.Delete(u);
+
+            //check if the user has been deleted or not
+            if(success == true)
+            {
+                //user deleted successfully
+                MessageBox.Show("User deleted successfully.");
+
+                //refresh data grid view
+                DataTable dt = dal.Select();
+                dgvUsers.DataSource = dt;
+
+                //clear the textboxes
+                Clear();
+            }
+        }
     }
 }

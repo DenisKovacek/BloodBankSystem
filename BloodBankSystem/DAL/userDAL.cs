@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace BloodBankSystem.DAL
 {
-    class userDAL
+   public class userDAL
     {
         //creating static string for connection with db
         static string myconnstrng = ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
@@ -146,6 +146,9 @@ namespace BloodBankSystem.DAL
                 cmd.Parameters.AddWithValue("@added_date", u.added_date);
                 cmd.Parameters.AddWithValue("@image_name", u.image_name);
                 cmd.Parameters.AddWithValue("@user_id", u.user_id);
+
+                //open db connection
+                conn.Open();
 
                 //create an integer variable to hold the value after the query is executed
                 int rows = cmd.ExecuteNonQuery();
