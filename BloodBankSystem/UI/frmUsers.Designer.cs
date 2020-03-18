@@ -82,6 +82,7 @@
             this.btnSelectImage.TabIndex = 2;
             this.btnSelectImage.Text = "Select Image";
             this.btnSelectImage.UseVisualStyleBackColor = true;
+            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // lblUserId
             // 
@@ -256,6 +257,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(362, 26);
             this.textBoxSearch.TabIndex = 23;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // lblSearch
             // 

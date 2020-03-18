@@ -237,6 +237,49 @@ namespace BloodBankSystem.DAL
         }
 
         #endregion
+
+        #region
+
+        public DataTable Search(string keywords)
+        {
+            //create an sql connection
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //create data table to hold the data from db temporarily
+            DataTable dt = new DataTable();
+
+            //write the code to search the users
+            try
+            {
+                //write the sql query to search the user from db
+                String sql = "SELECT * FROM table_users WHERE user_id LIKE '%" + keywords +"%' OR full_name LIKE '%" + keywords + "%' OR address LIKE '%" + keywords + "%'";
+
+                //create sql command to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //create sql data adapter to get the data from db
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //open the db connection
+                conn.Open();
+
+                //pass the data from adapter to dataTable
+                adapter.Fill(dt);
+            }
+            catch (Exception e)
+            {
+                //display error messages if there are any errors
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                //close the db connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }
 
