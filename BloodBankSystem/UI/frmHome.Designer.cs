@@ -106,6 +106,7 @@
             this.donorsToolStripMenuItem.Name = "donorsToolStripMenuItem";
             this.donorsToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
             this.donorsToolStripMenuItem.Text = "Donors";
+            this.donorsToolStripMenuItem.Click += new System.EventHandler(this.donorsToolStripMenuItem_Click);
             // 
             // panel1
             // 
