@@ -175,8 +175,55 @@ namespace BloodBankSystem.DAL
             return isSuccess;
         }
         #endregion
-        #region 
+        #region DELETE donors from db
+        public bool Delete(donorBLL d)
+        {
+            //create a boolean value and set its value to false
+            bool isSuccess = false;
 
+            //create an sql connection to connect to db
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //write sql query to delete donors from the db
+                string sql = "DELETE FROM table_donors WHERE donor_id = @donor_id";
+
+                //create sql command 
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //pass the value to sql query using parameters
+                cmd.Parameters.AddWithValue("@donor_id", d.donor_id);
+
+                //open db connection
+                conn.Open();
+
+                //create an integer variable to check whether the query executed successfully 
+                int rows = cmd.ExecuteNonQuery();
+
+                //if the query is executed successfully the number of rows will be greater than zero
+                if(rows > 0)
+                {
+                    //query executed successfully
+                    isSuccess = true;
+                }
+                else
+                {
+                    //query failed to execute 
+                    isSuccess = false;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+
+            }
+
+            return isSuccess;
+        }
         #endregion
     }
 }
