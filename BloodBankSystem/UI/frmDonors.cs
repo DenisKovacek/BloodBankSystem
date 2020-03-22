@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,6 +125,8 @@ namespace BloodBankSystem.UI
             //display the image of selected donor
             string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length)-10);
             string imagePath = paths + "//images//" + imageName;
+            //display the image of the user selected
+            pictureBox1.Image = new Bitmap(imagePath);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -192,6 +195,54 @@ namespace BloodBankSystem.UI
         {
             //clear the textboxes
             Clear();
+        }
+
+        private void btnSelectImage_Click(object sender, EventArgs e)
+        {
+            //code to select image and upload it
+            //open the dialog box to select the image
+            OpenFileDialog open = new OpenFileDialog();
+
+            //filter the file type
+            open.Filter = "Image files only.";
+
+            //check if the image is selected
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                //check if the file exists
+                if (open.CheckFileExists)
+                {
+                    //display the selected image in picture box
+                    pictureBox1.Image = new Bitmap(open.FileName);
+
+                    //rename the selected image
+                    //get the extension of selected image
+                    string ext = Path.GetExtension(open.FileName);
+
+                    string name = Path.GetFileNameWithoutExtension(open.FileName);
+
+                    //generate eandom but globally unique identifier
+                    Guid g = new Guid();
+                    g = Guid.NewGuid();
+
+                    //rename the image
+                    imageName = "Blood_bank_"+name+g+ext;
+
+                    //get the source path
+                    string sourcePath = open.FileName;
+
+                    //get the destination path
+                    string paths = Application.StartupPath.Substring(0, Application.StartupPath.Length - 10);
+                    //path to destination
+                    string destinationPath = paths + "//images//" + imageName;
+
+                    //upload the image to destination folder
+                    File.Copy(sourcePath, destinationPath);
+
+                    //display message after successfull upload
+                    MessageBox.Show("Picture uploaded.");
+                }
+            }
         }
     }
 }

@@ -234,6 +234,7 @@
             this.btnSelectImage.TabIndex = 26;
             this.btnSelectImage.Text = "Select Image";
             this.btnSelectImage.UseVisualStyleBackColor = true;
+            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // pictureBox1
             // 
