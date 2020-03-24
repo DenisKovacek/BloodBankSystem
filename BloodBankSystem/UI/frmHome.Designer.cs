@@ -488,6 +488,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(502, 26);
             this.txtSearch.TabIndex = 12;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // frameHome
             // 
@@ -512,6 +513,8 @@
             this.Name = "frameHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Activated += new System.EventHandler(this.frameHome_Activated);
+            this.Load += new System.EventHandler(this.frameHome_Load);
             this.menuStripTop.ResumeLayout(false);
             this.menuStripTop.PerformLayout();
             this.panel1.ResumeLayout(false);

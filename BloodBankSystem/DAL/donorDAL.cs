@@ -225,5 +225,88 @@ namespace BloodBankSystem.DAL
             return isSuccess;
         }
         #endregion
+
+        #region COUNT donors for specific blood group
+        public string countDonors(string blood_group)
+        {
+            //create sql connection to connect to db
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //create a string variable for donor count and set its default value to zero
+            string donors = "0";
+
+            try
+            {
+                //sql query to count donors for specific blood group
+                string sql = "SELECT * FROM table_donors WHERE blood_group = '" + blood_group +"'";
+
+                //create sql command to execute query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //sql data adapter to get the data from tb
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //datatable to hold the data temporarily
+                DataTable dt = new DataTable();
+
+                //pass the value from SQL data adapter to data table
+                adapter.Fill(dt);
+
+                //get the total number of donors based on blood_group
+                donors = dt.Rows.Count.ToString();
+            }
+            catch(Exception e)
+            {
+                //display error message if there are any errors
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                //close the db connection
+                conn.Close();
+            }
+            return donors;
+        }
+        #endregion
+        #region METHOD to search donors
+        public DataTable Search(string keywords)
+        {
+            //sql connection to connect db
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            //create datatable to hold the data temporarily
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //write the code to search donors based on keywords typed in the text box
+                //write sql query to search donors
+                string sql = "SELECT * FROM table_donors WHERE donor_id LIKE '%" + keywords + "%' OR first_name LIKE '%" + keywords + "' OR email LIKE '%'" + keywords + "%' OR blood_group LIKE '" + keywords + "'";
+
+                //create sql command to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //sql adapter to save data from db
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                //open db connection
+                conn.Open();
+
+                //transfer data from sql data adapter to data table
+                adapter.Fill(dt);
+            }
+            catch (Exception e)
+            {
+                //display error message if there are any exceptional errors
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                //close the db connectoin
+                conn.Close();
+            }
+            return dt;
+        }
+        #endregion
     }
 }

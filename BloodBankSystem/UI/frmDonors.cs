@@ -244,5 +244,27 @@ namespace BloodBankSystem.UI
                 }
             }
         }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            //add the functionality to search bar
+
+            //get the keywords typed in the search text box
+            string keywords = textBoxSearch.Text;
+
+            //check if the search bar is empty or not
+            if(keywords != null)
+            {
+                //display the information of donors based on keywords
+                DataTable dt = dal.Search(keywords);
+                dgvDonors.DataSource = dt;
+            }
+            else
+            {
+                //display the information of donors based on keywords
+                DataTable dt = dal.Select();
+                dgvDonors.DataSource = dt;
+            }
+        }
     }
 }
