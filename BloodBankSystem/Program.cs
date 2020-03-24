@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodBankSystem.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace BloodBankSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frameHome());
+            Application.Run(new frmLogin());
         }
     }
 }
