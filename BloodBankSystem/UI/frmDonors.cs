@@ -22,6 +22,7 @@ namespace BloodBankSystem.UI
         //create object of donorBLL and donorDAL
         donorBLL d = new donorBLL();
         donorDAL dal = new donorDAL();
+        userDAL udal = new userDAL();
 
         //global variable for image
         string imageName = "no-image.jpg";
@@ -55,7 +56,13 @@ namespace BloodBankSystem.UI
             d.contact = textBoxContact.Text;
             d.address = textBoxAddress.Text;
             d.added_date = DateTime.Now;
-            d.added_by = 1; //get the id of logged in user
+
+            //get the logged in user id
+            string loggedInUser = frmLogin.loggedInUser;
+            userBLL usr = udal.GetIDFromUsername(loggedInUser);
+
+            d.added_by = usr.user_id;
+
             d.image_name = imageName;
 
             //inserting data into db
@@ -141,7 +148,13 @@ namespace BloodBankSystem.UI
             d.blood_group = comboBoxBloodGroup.Text;
             d.contact = textBoxContact.Text;
             d.address = textBoxAddress.Text;
-            d.added_by = 1; //get the id to logged in user
+
+            //get the logged in user id
+            string loggedInUser = frmLogin.loggedInUser;
+            userBLL usr = udal.GetIDFromUsername(loggedInUser);
+
+            d.added_by = usr.user_id;
+
             d.image_name = imageName;
 
             //create a boolean variable to check whether the data updated successfully 

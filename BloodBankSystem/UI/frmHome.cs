@@ -45,6 +45,9 @@ namespace BloodBankSystem
             //display all the donors
             DataTable dt = dal.Select();
             dgvDonors.DataSource = dt;
+
+            //display the username of the logged in user
+            lblUserTitle.Text = frmLogin.loggedInUser;
         }
 
         public void allDonorCount()

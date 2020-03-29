@@ -23,6 +23,9 @@ namespace BloodBankSystem.UI
         loginBLL l = new loginBLL();
         loginDAL dal = new loginDAL();
 
+        //create a static string method to save the username
+        public static string loggedInUser;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //write the code to login
@@ -38,6 +41,10 @@ namespace BloodBankSystem.UI
             {
                 //login success
                 MessageBox.Show("Login successful.");
+
+                //save the username in loggedInUser method
+                loggedInUser = l.username;
+
                 //display home form
                 frameHome home = new frameHome();
                 home.Show();

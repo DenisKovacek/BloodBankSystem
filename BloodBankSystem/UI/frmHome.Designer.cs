@@ -68,6 +68,8 @@
             this.dgvDonors = new System.Windows.Forms.DataGridView();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblUserTitle = new System.Windows.Forms.Label();
+            this.lblDisplayName = new System.Windows.Forms.Label();
             this.menuStripTop.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelOPositive.SuspendLayout();
@@ -90,21 +92,21 @@
             this.donorsToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
-            this.menuStripTop.Size = new System.Drawing.Size(1207, 33);
+            this.menuStripTop.Size = new System.Drawing.Size(1207, 36);
             this.menuStripTop.TabIndex = 0;
             this.menuStripTop.Text = "menuStrip1";
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(71, 32);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // donorsToolStripMenuItem
             // 
             this.donorsToolStripMenuItem.Name = "donorsToolStripMenuItem";
-            this.donorsToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
+            this.donorsToolStripMenuItem.Size = new System.Drawing.Size(87, 32);
             this.donorsToolStripMenuItem.Text = "Donors";
             this.donorsToolStripMenuItem.Click += new System.EventHandler(this.donorsToolStripMenuItem_Click);
             // 
@@ -113,7 +115,7 @@
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.lblAppName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 547);
+            this.panel1.Location = new System.Drawing.Point(0, 598);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1207, 33);
             this.panel1.TabIndex = 1;
@@ -133,7 +135,7 @@
             this.panelOPositive.Controls.Add(this.lblName);
             this.panelOPositive.Controls.Add(this.lblOPositiveCount);
             this.panelOPositive.Controls.Add(this.labelBloodGroup);
-            this.panelOPositive.Location = new System.Drawing.Point(12, 50);
+            this.panelOPositive.Location = new System.Drawing.Point(12, 95);
             this.panelOPositive.Name = "panelOPositive";
             this.panelOPositive.Size = new System.Drawing.Size(219, 103);
             this.panelOPositive.TabIndex = 2;
@@ -175,7 +177,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblONegativeCount);
             this.panel2.Controls.Add(this.lblONegative);
-            this.panel2.Location = new System.Drawing.Point(264, 50);
+            this.panel2.Location = new System.Drawing.Point(264, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(219, 103);
             this.panel2.TabIndex = 3;
@@ -217,7 +219,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.lblANegativeCount);
             this.panel3.Controls.Add(this.lblANegative);
-            this.panel3.Location = new System.Drawing.Point(261, 182);
+            this.panel3.Location = new System.Drawing.Point(261, 227);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(219, 103);
             this.panel3.TabIndex = 5;
@@ -259,7 +261,7 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.lblAPositiveCount);
             this.panel4.Controls.Add(this.lblAPositive);
-            this.panel4.Location = new System.Drawing.Point(12, 177);
+            this.panel4.Location = new System.Drawing.Point(12, 222);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(219, 103);
             this.panel4.TabIndex = 4;
@@ -301,7 +303,7 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.lblABNegativeCount);
             this.panel5.Controls.Add(this.lblABNegative);
-            this.panel5.Location = new System.Drawing.Point(264, 428);
+            this.panel5.Location = new System.Drawing.Point(264, 473);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 103);
             this.panel5.TabIndex = 9;
@@ -343,7 +345,7 @@
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.lblABPositiveCount);
             this.panel6.Controls.Add(this.lblABPositive);
-            this.panel6.Location = new System.Drawing.Point(12, 428);
+            this.panel6.Location = new System.Drawing.Point(12, 473);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(219, 103);
             this.panel6.TabIndex = 8;
@@ -385,7 +387,7 @@
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.lblBNegativeCount);
             this.panel7.Controls.Add(this.lblBNegative);
-            this.panel7.Location = new System.Drawing.Point(264, 301);
+            this.panel7.Location = new System.Drawing.Point(264, 346);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(219, 103);
             this.panel7.TabIndex = 7;
@@ -427,7 +429,7 @@
             this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.lblBPositiveCount);
             this.panel8.Controls.Add(this.lblBPositive);
-            this.panel8.Location = new System.Drawing.Point(12, 301);
+            this.panel8.Location = new System.Drawing.Point(12, 346);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(219, 103);
             this.panel8.TabIndex = 6;
@@ -490,12 +492,32 @@
             this.txtSearch.TabIndex = 12;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // lblUserTitle
+            // 
+            this.lblUserTitle.AutoSize = true;
+            this.lblUserTitle.Location = new System.Drawing.Point(13, 58);
+            this.lblUserTitle.Name = "lblUserTitle";
+            this.lblUserTitle.Size = new System.Drawing.Size(104, 20);
+            this.lblUserTitle.TabIndex = 13;
+            this.lblUserTitle.Text = "Logged in as:";
+            // 
+            // lblDisplayName
+            // 
+            this.lblDisplayName.AutoSize = true;
+            this.lblDisplayName.Location = new System.Drawing.Point(124, 58);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(13, 20);
+            this.lblDisplayName.TabIndex = 14;
+            this.lblDisplayName.Text = ".";
+            // 
             // frameHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1207, 580);
+            this.ClientSize = new System.Drawing.Size(1207, 631);
+            this.Controls.Add(this.lblDisplayName);
+            this.Controls.Add(this.lblUserTitle);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dgvDonors);
@@ -583,6 +605,8 @@
         private System.Windows.Forms.DataGridView dgvDonors;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblUserTitle;
+        private System.Windows.Forms.Label lblDisplayName;
     }
 }
 
